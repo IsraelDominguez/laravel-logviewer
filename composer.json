@@ -1,7 +1,8 @@
 {
-    "name": "israeldominguez/laravel-logviewer",
+    "name": "IsraelDominguez/laravel-logviewer",
     "description": "Log viewer for Genetsis Admin package",
     "type": "library",
+    "version": "dev-master",
     "authors": [
         {
             "name": "idominguez",
