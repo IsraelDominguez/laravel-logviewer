@@ -11,7 +11,7 @@ class LogViewerServiceProvider extends ServiceProvider
      *
      * @var bool
      */
-    protected $defer = false;
+    protected $defer = true;
 
     /**
      * Bootstrap the application services.
@@ -20,6 +20,10 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->handleRoutes();
+        $this->handleViews();
+        $this->handleCommands();
+
         \AdminMenu::add('logviewer::partials.logviewer_menu');
     }
 
@@ -30,10 +34,6 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->handleRoutes();
-        $this->handleViews();
-        $this->handleCommands();
-
         $this->app->singleton('Logviewer', function(){
             return new LogViewer();
         });
