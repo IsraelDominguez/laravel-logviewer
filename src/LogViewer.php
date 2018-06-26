@@ -102,7 +102,7 @@ class LogViewer
      */
     public function getLogFiles($count = 20)
     {
-        $files = glob(storage_path('logs/*'));
+        $files = glob(storage_path('logs/*.log'));
         $files = array_combine($files, array_map('filemtime', $files));
         arsort($files);
 
