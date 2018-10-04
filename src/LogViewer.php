@@ -232,17 +232,12 @@ class LogViewer
     /**
      * Delete log file
      *
-     * @return bool
-     * @throws FileNotFoundException
+     * @return bool|int
      */
     public function delete()
     {
         if ($this->filePath) {
-            Log::debug($this->filePath);
-            if ( ! Storage::delete($this->filePath)) {
-                throw new FileNotFoundException('There was an error deleting the log.');
-            }
-            return true;
+            return file_put_contents($this->filePath,'');
         }
         return false;
     }
