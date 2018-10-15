@@ -9,6 +9,9 @@
             "email": "israel.dominguez.garcia@gmail.com"
         }
     ],
+    "require": {
+        "spatie/laravel-permission": "dev-master"
+    },
     "require-dev": {
         "illuminate/support": "~5.5.0"
     },
