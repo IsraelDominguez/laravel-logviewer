@@ -1,4 +1,4 @@
-
+@role('SuperAdmin')
 <li class="navigation__sub {{ ($section=='logs') ? 'navigation__sub--active' : '' }}">
     <a href=""><i class="zmdi zmdi-format-list-bulleted zmdi-hc-fw"></i> Logs</a>
     <ul>
@@ -9,3 +9,4 @@
         @endforeach
     </ul>
 </li>
+@endrole
