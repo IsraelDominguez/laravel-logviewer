@@ -71,7 +71,7 @@
     </div>
 @endsection
 
-@section('custom-js')
+@push('custom-js')
     @if ($message = Session::get('success'))
     <script>
         $(document).ready(function() {
@@ -79,4 +79,4 @@
         });
     </script>
     @endif
-@endsection
+@endpush
