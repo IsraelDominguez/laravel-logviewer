@@ -28,6 +28,8 @@ class LogViewerController extends AdminController
 
         $size = static::bytesToHuman($viewer->getFilesize());
 
+        \View::share('file', $file);
+
         return view('logviewer::logviewer.index', compact('viewer','logs', 'offset', 'size'));
     }
 

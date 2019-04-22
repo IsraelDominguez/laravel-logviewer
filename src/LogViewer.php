@@ -1,4 +1,5 @@
 <?php namespace Genetsis\LogViewer;
+use Carbon\Carbon;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -262,11 +263,19 @@ class LogViewer
             }
         }
 
-        if (empty($logs)) {
-            return [];
-        }
-
         $parsed = [];
+
+        if (empty($logs)) {
+            $parsed[] = [
+                'time' => Carbon::now(),
+                'env' => 'local',
+                'level' => 'INFO',
+                'info' => $raw,
+                'trace' => ''
+            ];
+
+            return $parsed;
+        }
 
         foreach (array_chunk($logs, 5) as $log) {
             $parsed[] = [
