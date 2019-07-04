@@ -266,13 +266,15 @@ class LogViewer
         $parsed = [];
 
         if (empty($logs)) {
-            $parsed[] = [
-                'time' => Carbon::now(),
-                'env' => 'local',
-                'level' => 'INFO',
-                'info' => $raw,
-                'trace' => ''
-            ];
+            $parsed = collect(explode("\n" , $raw))->reverse()->map(function($log_entry, $key) {
+                return [
+                    'time' => Carbon::now(),
+                    'env' => 'local',
+                    'level' => 'INFO',
+                    'info' => $log_entry,
+                    'trace' => ''
+                ];
+            })->toArray();
 
             return $parsed;
         }
