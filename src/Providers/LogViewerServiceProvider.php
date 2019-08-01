@@ -24,7 +24,7 @@ class LogViewerServiceProvider extends ServiceProvider
         $this->handleViews();
         $this->handleCommands();
 
-        \AdminMenu::add('logviewer::partials.logviewer_menu');
+        \AdminMenu::add('logviewer::partials.logviewer_menu', [], 10);
     }
 
     /**
